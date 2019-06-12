@@ -118,6 +118,7 @@ open class TypingIndicator: UIView {
         stackView.alignment = .center
         stackView.distribution = .fillEqually
         addSubview(stackView)
+        animateViews()
     }
     
     // MARK: - Layout
@@ -135,7 +136,6 @@ open class TypingIndicator: UIView {
         defer { isAnimating = true }
         guard !isAnimating else { return }
         var delay: TimeInterval = 0
-        animateViews()
         /*for dot in dots {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
                 guard let `self` = self else { return }

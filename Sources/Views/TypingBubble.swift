@@ -90,8 +90,8 @@ open class TypingBubble: UIView {
     }
     
     open func setupSubviews() {
-        addSubview(tinyBubble)
-        addSubview(cornerBubble)
+      //  addSubview(tinyBubble)
+       // addSubview(cornerBubble)
         addSubview(contentBubble)
         contentBubble.addSubview(typingIndicator)
         backgroundColor = .incomingGray
