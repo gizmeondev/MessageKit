@@ -135,7 +135,8 @@ open class TypingIndicator: UIView {
         defer { isAnimating = true }
         guard !isAnimating else { return }
         var delay: TimeInterval = 0
-        for dot in dots {
+        animateViews()
+        /*for dot in dots {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
                 guard let `self` = self else { return }
                 if self.isBounceEnabled {
@@ -149,7 +150,7 @@ open class TypingIndicator: UIView {
                 }
             }
             delay += 0.33
-        }
+        }*/
     }
     
     /// Sets the state of the `TypingIndicator` to not animating and removes animation layers
@@ -160,6 +161,29 @@ open class TypingIndicator: UIView {
             $0.layer.removeAnimation(forKey: AnimationKeys.bounce)
             $0.layer.removeAnimation(forKey: AnimationKeys.opacity)
         }
+    }
+    
+    func animateViews() {
+        
+        UIView.animate(withDuration: 0.33, animations: {
+            self.dots.first.alpha = 1
+        }, completion: {
+            finished in
+            UIView.animate(withDuration: 0.33, animations: {
+                self.dots[1].alpha = 1
+            }, completion: {
+                finished in
+                UIView.animate(withDuration: 0.33, animations: {
+                    self.dots.last.alpha = 1
+                }, completion: {
+                    finished in
+                    dots.subviews.forEach({ (dot) in
+                        dot.alpha = 0
+                    })
+                    self.animateViews()
+                })
+            })
+        })
     }
     
 }
