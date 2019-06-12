@@ -164,7 +164,6 @@ open class TypingIndicator: UIView {
     }
     
     func animateViews() {
-        
         UIView.animate(withDuration: 0.33, animations: {
             self.dots.first?.alpha = 1
         }, completion: {
@@ -177,7 +176,7 @@ open class TypingIndicator: UIView {
                     self.dots.last?.alpha = 1
                 }, completion: {
                     finished in
-                    dots.subviews.forEach({ (dot) in
+                    self.dots.forEach({ (dot) in
                         dot.alpha = 0
                     })
                     self.animateViews()
