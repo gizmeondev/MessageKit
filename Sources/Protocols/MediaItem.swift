@@ -43,7 +43,7 @@ public protocol MediaItem {
     var imageText: String? { get }
     
     /// The image Text
-    var thumbnail: String? { get }
+    var thumbnail: URL? { get }
 
 
 }
