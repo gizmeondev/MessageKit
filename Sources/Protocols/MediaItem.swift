@@ -38,5 +38,12 @@ public protocol MediaItem {
 
     /// The size of the media item.
     var size: CGSize { get }
+    
+      /// The image Text
+    var imageText: String? { get }
+    
+    /// The image Text
+    var thumbnail: String? { get }
+
 
 }
