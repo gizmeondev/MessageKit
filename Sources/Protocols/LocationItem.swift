@@ -32,5 +32,7 @@ public protocol LocationItem {
 
     /// The size of the location item.
     var size: CGSize { get }
+    
+    var url: URL? { get }
 
 }
